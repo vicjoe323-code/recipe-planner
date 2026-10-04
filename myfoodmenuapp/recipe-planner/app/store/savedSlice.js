@@ -13,6 +13,6 @@ const savedSlice = createSlice ({
     },
 });
 
-export const {togglrSaved}=
+export const {toggleSaved}=
 savedSlice.actions;
 export default savedSlice.reducer;
