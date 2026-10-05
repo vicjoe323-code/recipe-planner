@@ -2,16 +2,30 @@
 import Link from "next/link";
 import { useGetCategoriesQuery, useGetAreasQuery } from "../store/mealApi";
 
+const withRecipes = [
+  "American", "British", "Canadian", "Chinese", "Croatian", "Dutch",
+  "Egyptian", "Filipino", "French", "Greek", "Indian", "Irish",
+  "Italian", "Jamaican", "Japanese", "Kenyan", "Malaysian", "Mexican",
+  "Moroccan", "Polish", "Portuguese", "Russian", "Spanish", "Thai",
+  "Tunisian", "Turkish", "Ukrainian", "Uruguayan", "Vietnamese",
+];
+
 export default function Filters() {
   const { data: cats } = useGetCategoriesQuery();
   const { data: areas } = useGetAreasQuery();
 
   const uniqueCats = [...new Set(cats?.map((c) => c.strCategory))];
-  const uniqueAreas = [...new Set(areas?.map((a) => a.strArea))];
+  const uniqueAreas = [...new Set(areas?.map((a) => a.strArea))].filter((a) =>
+    withRecipes.includes(a)
+  );
 
   return (
-    <div className="mb-6">
-      <p className="mb-1 font-semibold">Categories</p>
+    <details className="mb-6 rounded border p-3">
+      <summary className="cursor-pointer font-semibold">
+        Filter by category or cuisine
+      </summary>
+
+      <p className="mb-1 mt-3 font-semibold">Categories</p>
       <div className="mb-3 flex flex-wrap gap-2">
         {uniqueCats.map((name, i) => (
           <Link
@@ -36,6 +50,6 @@ export default function Filters() {
           </Link>
         ))}
       </div>
-    </div>
+    </details>
   );
 }
