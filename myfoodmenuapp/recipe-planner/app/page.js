@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchMealsQuery } from "./store/mealApi";
+import Filters from "./components/Filters";
 
 export default function Home(){
   const [text, setText] =
@@ -32,6 +33,7 @@ export default function Home(){
         placeholder="Search recipes..."
         className="mb-6 w-full rounded border p-2"
         />
+        <Filters />
 
         {isLoading && (
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
