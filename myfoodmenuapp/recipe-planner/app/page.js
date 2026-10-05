@@ -19,6 +19,9 @@ export default function Home(){
   return(
     <main className="mx-auto max-w-5xl p-4">
       <h1 className="mb-4 text-2xl font-bold">Recipe Planner</h1>
+      <Link href="/planner" className="mb-4 inline-block underline">
+  Weekly planner →
+</Link>
       <input
       value ={text}
       onChange ={(e) =>

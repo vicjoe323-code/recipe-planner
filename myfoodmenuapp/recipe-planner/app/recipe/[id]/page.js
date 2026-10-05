@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetMealQuery } from "../../store/mealApi";
 import { toggleSaved } from "../../store/savedSlice";
+import AddToPlan from "../../components/AddToPlan";
 
 export default function RecipePage() {
   const { id } = useParams();
@@ -64,7 +65,8 @@ export default function RecipePage() {
           <li key={i}>{item}</li>
         ))}
       </ul>
-
+      
+      <AddToPlan meal={meal} />
       <h2 className="mb-2 text-xl font-semibold">Instructions</h2>
       <p className="mb-6 whitespace-pre-line">{meal.strInstructions}</p>
 
