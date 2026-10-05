@@ -3,6 +3,9 @@
 A recipe app where you can search recipes, save your favourites, plan meals for the week, and get a shopping list.
 
 ## Features
+- Search by ingredient
+- Nutrition lookup using Open Food Facts
+- Print-friendly shopping list
 - Search recipes by name (with 400ms debounce)
 - Browse by category and cuisine
 - Recipe page with ingredients, instructions and YouTube video
@@ -18,6 +21,7 @@ A recipe app where you can search recipes, save your favourites, plan meals for 
 - Tailwind CSS
 
 ## API
+- [Open Food Facts](https://openfoodfacts.github.io/openfoodfacts-server/api/)
 - [TheMealDB](https://www.themealdb.com/api.php) (no key needed)
 
 ## Run locally
@@ -27,5 +31,6 @@ A recipe app where you can search recipes, save your favourites, plan meals for 
 4. Run `npm run dev`
 5. Open http://localhost:3000
 
+## Links
 https://vercel.com/i-vic/recipe-planner
 Add your Vercel link here after deploying.
