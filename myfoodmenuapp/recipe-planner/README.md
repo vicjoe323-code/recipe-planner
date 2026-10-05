@@ -27,5 +27,5 @@ A recipe app where you can search recipes, save your favourites, plan meals for 
 4. Run `npm run dev`
 5. Open http://localhost:3000
 
-## Live link
+https://vercel.com/i-vic/recipe-planner
 Add your Vercel link here after deploying.
