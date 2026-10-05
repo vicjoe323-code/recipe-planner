@@ -26,11 +26,20 @@ export default function ShoppingListPage() {
 
   return (
     <main className="mx-auto max-w-3xl p-4">
-      <Link href="/" className="underline">← Back</Link>
+      <Link href="/" className="underline print:hidden">← Back</Link>
       <h1 className="my-4 text-2xl font-bold">Shopping List</h1>
 
       {items.length === 0 && (
         <p>Nothing here yet. Add meals to your planner first.</p>
+      )}
+
+      {items.length > 0 && (
+        <button
+          onClick={() => window.print()}
+          className="mb-4 rounded border px-4 py-2 print:hidden"
+        >
+          🖨️ Print list
+        </button>
       )}
 
       <ul>
