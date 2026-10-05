@@ -2,12 +2,22 @@
 import Link from "next/link";
 import { useGetCategoriesQuery, useGetAreasQuery } from "../store/mealApi";
 
+const withRecipes = [
+  "American", "British", "Canadian", "Chinese", "Croatian", "Dutch",
+  "Egyptian", "Filipino", "French", "Greek", "Indian", "Irish",
+  "Italian", "Jamaican", "Japanese", "Kenyan", "Malaysian", "Mexican",
+  "Moroccan", "Polish", "Portuguese", "Russian", "Spanish", "Thai",
+  "Tunisian", "Turkish", "Ukrainian", "Uruguayan", "Vietnamese",
+];
+
 export default function Filters() {
   const { data: cats } = useGetCategoriesQuery();
   const { data: areas } = useGetAreasQuery();
 
   const uniqueCats = [...new Set(cats?.map((c) => c.strCategory))];
-  const uniqueAreas = [...new Set(areas?.map((a) => a.strArea))];
+  const uniqueAreas = [...new Set(areas?.map((a) => a.strArea))].filter((a) =>
+    withRecipes.includes(a)
+  );
 
   return (
     <details className="mb-6 rounded border p-3">

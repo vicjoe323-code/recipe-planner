@@ -26,6 +26,13 @@ export const mealApi = createApi({
       query: ({ type, value }) => `filter.php?${type}=${value}`,
       transformResponse: (res) => res.meals || [],
     }),
+    searchFood: builder.query({
+      query: (term) =>
+        `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(
+          term
+        )}&search_simple=1&action=process&json=1&page_size=5&fields=product_name,brands,nutriments`,
+      transformResponse: (res) => res.products || [],
+    }),
   }),
 });
 
@@ -35,4 +42,5 @@ export const {
   useGetCategoriesQuery,
   useGetAreasQuery,
   useFilterMealsQuery,
+  useSearchFoodQuery,
 } = mealApi;
