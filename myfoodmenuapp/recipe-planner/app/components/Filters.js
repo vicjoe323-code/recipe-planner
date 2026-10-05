@@ -10,8 +10,12 @@ export default function Filters() {
   const uniqueAreas = [...new Set(areas?.map((a) => a.strArea))];
 
   return (
-    <div className="mb-6">
-      <p className="mb-1 font-semibold">Categories</p>
+    <details className="mb-6 rounded border p-3">
+      <summary className="cursor-pointer font-semibold">
+        Filter by category or cuisine
+      </summary>
+
+      <p className="mb-1 mt-3 font-semibold">Categories</p>
       <div className="mb-3 flex flex-wrap gap-2">
         {uniqueCats.map((name, i) => (
           <Link
@@ -36,6 +40,6 @@ export default function Filters() {
           </Link>
         ))}
       </div>
-    </div>
+    </details>
   );
 }
