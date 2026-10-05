@@ -3,16 +3,18 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import savedReducer from "./savedSlice";
 import plannerReducer from "./plannerSlice";
+import shoppingReducer from "./shoppingSlice";
 import { mealApi } from "./mealApi";
 
 const rootReducer = combineReducers({
   saved: savedReducer,
   planner: plannerReducer,
+  shopping: shoppingReducer,
   [mealApi.reducerPath]: mealApi.reducer,
 });
 
 const persisted = persistReducer(
-  { key: "root", storage, whitelist: ["saved", "planner"] },
+  { key: "root", storage, whitelist: ["saved", "planner", "shopping"] },
   rootReducer
 );
 

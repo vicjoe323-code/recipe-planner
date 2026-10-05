@@ -22,6 +22,9 @@ export default function Home(){
       <Link href="/planner" className="mb-4 inline-block underline">
   Weekly planner →
 </Link>
+<Link href="/shopping-list" className="mb-4 ml-4 inline-block underline">
+  Shopping list →
+</Link>
       <input
       value ={text}
       onChange ={(e) =>
